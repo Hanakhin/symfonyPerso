@@ -6,7 +6,7 @@
     "autoprefixer": "^10.4.19",
     "core-js": "^3.23.0",
     "postcss": "^8.4.39",
-    "postcss-loader": "^7.3.4",
+    "postcss-loader": "^8.1.1",
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.77.6",
     "sass-loader": "^14.0.0",
