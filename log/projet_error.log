@@ -1,0 +1,2 @@
+2024/07/06 09:52:06 [crit] 29#29: *1 realpath() "/var/www/html/public" failed (2: No such file or directory), client: 172.20.0.1, server: 127.0.0.1, request: "GET / HTTP/1.1", host: "localhost"
+2024/07/06 09:52:07 [crit] 29#29: *1 realpath() "/var/www/html/public" failed (2: No such file or directory), client: 172.20.0.1, server: 127.0.0.1, request: "GET / HTTP/1.1", host: "localhost"
