@@ -1,0 +1,31 @@
+<div class="w-full bg-white py-4 shadow-md">
+    <div class="container mx-auto flex items-center">
+        <nav class="inline-flex w-full h-full items-center">
+            <h1 class="text-xl font-bold text-blue-500">Sample Name</h1>
+            <div class="1/3 w-full h-full"></div>
+            <div class="1/3 w-full h-full">
+                <ul class="inline-flex w-full justify-evenly">
+                    <li>
+                        <a href="{{ path('app_home') }}" class=" text-xl text-blue-500 custom-button hover:text-white">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_contact') }}" class=" text-xl text-blue-500 custom-button hover:text-white">Contact</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_about') }}" class="text-xl text-blue-500 custom-button hover:text-white">about</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="1/3 w-full h-full items-center">
+                <ul class="inline-flex w-full justify-center gap-4">
+                    <li>
+                        <a href="{{ path('app_login') }}" class="text-xl text-blue-500 custom-button hover:text-white">Login</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_register') }}" class="text-xl text-blue-500 custom-button hover:text-white">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
