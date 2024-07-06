@@ -1,3 +1,7 @@
+-----VERIFIEZ BIEN QUE VOUS ETES DANS VOTRE BRANCHE AVANT DE PUSH-----
+
+
+
 docker compose up
 
 docker exec -it phpgrp composer install
