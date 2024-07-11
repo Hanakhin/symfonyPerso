@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'extincteur{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title mb-4">Détails de l'extincteur {{ extincteur.id }}</h1>
+
+                <table class="table table-striped">
+                    <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ extincteur.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date de fabrication</th>
+                        <td>{{ extincteur.dateFabrication|date('d/m/Y') }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date de maintenance</th>
+                        <td>{{ extincteur.dateMaintenance|date('d/m/Y') }}</td>
+                    </tr>
+                    <tr>
+                        <th>Actif</th>
+                        <td>{{ extincteur.isActive ? 'Oui' : 'Non' }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div class="d-flex justify-content-between">
+                    <a href="{{ path('app_extincteur_index') }}" class="btn btn-secondary">Retour à la liste</a>
+                    <div>
+                        <a href="{{ path('app_extincteur_edit', {'id': extincteur.id}) }}" class="btn btn-primary">Modifier</a>
+
+                        {% if not extincteur.isActive %}
+                            {{ include('extincteur/_activate_form.html.twig') }}
+                        {% else %}
+                            {{ include('extincteur/_delete_form.html.twig') }}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

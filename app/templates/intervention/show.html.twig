@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'extincteur{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title mb-4">Détails de l'intervention {{ intervention.id }}</h1>
+
+                <table class="table table-striped">
+                    <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ intervention.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date de fabrication</th>
+                        <td>{{ intervention.dateCreation|date('d/m/Y') }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date de fabrication</th>
+                        <td>{{ intervention.dateIntervention|date('d/m/Y') }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date de maintenance</th>
+                        <td>{{ intervention.isUrgent }}</td>
+                    </tr>
+                    <tr>
+                        <th>status</th>
+                        <td>{{ intervention.statusId == 1 ? 'en cours' : intervention.statusId == 2 ? 'terminée' : 'Validée' }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div class="d-flex justify-content-between">
+                    <a href="{{ path('app_intervention_index') }}" class="btn btn-secondary">Retour à la liste</a>
+                    <div>
+                        <a href="{{ path('app_intervention_edit', {'id': intervention.id}) }}" class="btn btn-primary">Modifier</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

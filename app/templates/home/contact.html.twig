@@ -1,14 +1,45 @@
 {% extends 'base.html.twig' %}
 
-
-{% block title %}Contact Us{% endblock %}
-
+{% block title %}Contact - ExtincteurPro{% endblock %}
 
 {% block body %}
-    {% include './_fragments/_nav.html.twig' %}
-    <h1 class="text-3xl text-red-500">
-        Contact US
-    </h1>
-
-
+    <h1 class="mb-4">Contactez-nous</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nom</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="subject" class="form-label">Sujet</label>
+                    <input type="text" class="form-control" id="subject" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-danger">Envoyer</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h3>Nos coordonnées</h3>
+            <p><i class="fas fa-map-marker-alt me-2"></i>123 Rue des Extincteurs, 75000 Paris</p>
+            <p><i class="fas fa-phone me-2"></i>+33 1 23 45 67 89</p>
+            <p><i class="fas fa-envelope me-2"></i>contact@extincteurpro.com</p>
+            <div class="mt-4">
+                <h4>Heures d'ouverture</h4>
+                <p>Lundi - Vendredi : 9h00 - 18h00</p>
+                <p>Samedi : 9h00 - 12h00</p>
+                <p>Dimanche : Fermé</p>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a href="{{ path('app_home') }}" class="btn btn-secondary">Retour à l'accueil</a>
+    </div>
 {% endblock %}

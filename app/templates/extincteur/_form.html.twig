@@ -1,0 +1,25 @@
+
+{% block title %}Nouvel Extincteur{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    {{ form_start(extincteurForm, {'attr': {'class': 'form'}}) }}
+                    <div class="mb-3">
+                        {{ form_row(extincteurForm.dateMaintenance, {'attr': {'class': 'form-control'}, 'label_attr': {'class': 'form-label'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(extincteurForm.dateFabrication, {'attr': {'class': 'form-control'}, 'label_attr': {'class': 'form-label'}}) }}
+                    </div>
+                    <div class="mb-3 d-flex justify-content-center">
+                        {{ form_row(extincteurForm.Ajouter, {'attr': {'class': 'btn btn-danger me-2'}, 'label_attr': {'class': 'form-label'}}) }}
+                        <a href="{{ path('app_extincteur_index') }}" class="btn btn-secondary">Annuler</a>
+                    </div>
+                    {{ form_end(extincteurForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

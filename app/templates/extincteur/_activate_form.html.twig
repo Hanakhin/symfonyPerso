@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('app_extincteur_activate', {'id': extincteur.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir activer cet extincteur ?');" class="d-inline">
+    <input type="hidden" name="_token" value="{{ csrf_token('activate' ~ extincteur.id) }}">
+    <button class="btn btn-success">Activer</button>
+</form>

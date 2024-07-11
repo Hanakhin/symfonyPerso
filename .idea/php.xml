@@ -74,6 +74,18 @@
       <path value="$PROJECT_DIR$/app/vendor/symfony/framework-bundle" />
       <path value="$PROJECT_DIR$/app/vendor/symfony/polyfill-intl-normalizer" />
       <path value="$PROJECT_DIR$/app/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/app/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/app/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/app/vendor/symfony/type-info" />
+      <path value="$PROJECT_DIR$/app/vendor/symfony/clock" />
+      <path value="$PROJECT_DIR$/app/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/app/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/app/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/app/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/app/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/app/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/app/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/app/vendor/doctrine/migrations" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />

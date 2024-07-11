@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle intervention{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title mb-4">Nouvelle intervention</h1>
+
+                {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_label(form.dateCreation, 'Date de création') }}
+                    {{ form_widget(form.dateCreation, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.dateIntervention, 'Date d\'intervention') }}
+                    {{ form_widget(form.dateIntervention, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group form-check">
+                    {{ form_widget(form.isUrgent, {'attr': {'class': 'form-check-input'}}) }}
+                    {{ form_label(form.isUrgent, 'Urgente', {'label_attr': {'class': 'form-check-label'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.userId, 'Utilisateurs') }}
+                    {{ form_widget(form.userId, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.typeInterventionId, 'Type d\'intervention') }}
+                    {{ form_widget(form.typeInterventionId, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.extincteurs, 'Extincteurs') }}
+                    {{ form_widget(form.extincteurs, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="d-flex justify-content-between">
+                    <a href="{{ path('app_intervention_index') }}" class="btn btn-secondary">Retour à la liste</a>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title mb-4">Inscription</h1>
+
+                    {{ form_errors(registrationForm) }}
+
+                    {{ form_start(registrationForm, {'attr': {'class': 'form'}}) }}
+                    <div class="mb-3">
+                        {{ form_row(registrationForm.prenom, {'attr': {'class': 'form-control'}, 'label_attr': {'class': 'form-label'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(registrationForm.nom, {'attr': {'class': 'form-control'}, 'label_attr': {'class': 'form-label'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(registrationForm.email, {'attr': {'class': 'form-control'}, 'label_attr': {'class': 'form-label'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'form-control'}, 'label_attr': {'class': 'form-label'}, label: 'Mot de passe'}) }}
+                    </div>
+                    <div class="mb-3 d-flex justify-content-center">
+                        {{ form_row(registrationForm.valider, {'attr': {'class': 'btn btn-danger me-2'}, 'label_attr': {'class': 'form-label'}}) }}
+                        <a href="{{ path('app_home') }}" class="btn btn-secondary">Retour</a>
+                    </div>
+                    {{ form_end(registrationForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

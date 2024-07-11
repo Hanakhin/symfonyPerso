@@ -66,6 +66,18 @@
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/webpack-encore-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/yaml" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/twig/twig" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/doctrine/doctrine-migrations-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/doctrine/migrations" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/psr/clock" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/clock" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/form" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/options-resolver" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/polyfill-intl-icu" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/property-access" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/property-info" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/security-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/security-http" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/type-info" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
