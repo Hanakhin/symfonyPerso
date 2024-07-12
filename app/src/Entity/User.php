@@ -66,11 +66,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToMany(targetEntity: Extincteur::class, mappedBy: 'userId')]
     private Collection $extincteurs;
 
+    /**
+     * @var Collection<int, Rapport>
+     */
+    #[ORM\OneToMany(targetEntity: Rapport::class, mappedBy: 'user')]
+    private Collection $rapports;
+
     public function __construct()
     {
         $this->interventions = new ArrayCollection();
         $this->feedback = new ArrayCollection();
         $this->extincteurs = new ArrayCollection();
+        $this->rapports = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -275,6 +282,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if ($this->extincteurs->removeElement($extincteur)) {
             $extincteur->removeUserId($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Rapport>
+     */
+    public function getRapports(): Collection
+    {
+        return $this->rapports;
+    }
+
+    public function addRapport(Rapport $rapport): static
+    {
+        if (!$this->rapports->contains($rapport)) {
+            $this->rapports->add($rapport);
+            $rapport->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRapport(Rapport $rapport): static
+    {
+        if ($this->rapports->removeElement($rapport)) {
+            // set the owning side to null (unless already changed)
+            if ($rapport->getUser() === $this) {
+                $rapport->setUser(null);
+            }
         }
 
         return $this;

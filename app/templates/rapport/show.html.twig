@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'extincteur{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title mb-4">Détails du rapport {{ rapport.id }}</h1>
+
+                <table class="table table-striped">
+                    <tbody>
+                    <tr>
+                        <th>Id du rapport</th>
+                        <td>{{ rapport.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Utilisateur</th>
+                        <td>{{ rapport.getuser().email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Decription</th>
+                        <td>{{ rapport.description }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div class="d-flex justify-content-between">
+                    <a href="{{ path('app_rapport_index') }}" class="btn btn-secondary">Retour à la liste</a>
+                    <div>
+                        <a href="{{ path('app_rapport_edit', {'id': rapport.id}) }}" class="btn btn-primary">Modifier</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

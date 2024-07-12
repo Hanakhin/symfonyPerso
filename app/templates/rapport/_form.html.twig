@@ -1,0 +1,19 @@
+{% block body %}
+    <div class="container my-5">
+        <div class="card">
+            <div class="card-body">
+                {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_label(form.description, 'Contenu du rapport') }}
+               </div>
+                <div class="d-flex justify-content-between " style="margin-top: 22px;">
+                    <a href="{{ path('app_rapport_index') }}" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left"></i> Retour
+                    </a>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

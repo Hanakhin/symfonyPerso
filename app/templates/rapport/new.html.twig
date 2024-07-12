@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Rapport{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title mb-4">Créer un nouveau rapport</h1>
+
+                    {{ form_start(rapportForm, {'attr': {'class': 'form'}}) }}
+                    <div class="mb-3">
+                        {{ form_row(rapportForm.description, {'attr': {'class': 'form-control'}, 'label_attr': {'class': 'form-label'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(rapportForm.user, {'attr': {'class': 'form-control'}, 'label_attr': {'class': 'form-label'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(rapportForm.intervention, {'attr': {'class': 'form-control'}, 'label_attr': {'class':'form-label'}}) }}
+                    </div>
+                    <div class="mb-3 d-flex justify-content-center">
+                        {{ form_row(rapportForm.ajouter, {'attr': {'class': 'btn btn-primary me-2'}, 'label_attr': {'class': 'form-label'}}) }}
+                        <a href="{{ path('app_rapport_index') }}" class="btn btn-secondary">Annuler</a>
+                    </div>
+                    {{ form_end(rapportForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
