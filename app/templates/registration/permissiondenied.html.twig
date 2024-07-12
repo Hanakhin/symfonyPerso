@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accès refusé{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow">
+                    <div class="card-header bg-danger text-white">
+                        <h1 class="h3 mb-0">Accès refusé</h1>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Désolé, vous n'avez pas les autorisations nécessaires pour accéder à cette page.</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="{{ path('app_home') }}" class="btn btn-outline-secondary">
+                                <i class="fas fa-arrow-left me-2"></i>Retour à l'accueil
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
