@@ -25,4 +25,10 @@ class HomeController extends AbstractController
     {
         return $this->render('home/contact.html.twig');
     }
+
+    #[Route('/permissiondenied', name: 'app_permissiondenied')]
+    public function permissiondenied()
+    {
+        return $this->render('registration/permissiondenied.html.twig');
+    }
 }
