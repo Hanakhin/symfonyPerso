@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        body { background-color: #fff5f5; }
+        .card { background-color: #fff; border: 1px solid #dc3545; }
+        .card-header { background-color: #dc3545; color: white; }
+        .btn-custom-red { background-color: #dc3545; border-color: #dc3545; color: white; }
+        .btn-custom-red:hover { background-color: #c82333; border-color: #bd2130; }
+        .btn-outline-custom-red { color: #dc3545; border-color: #dc3545; }
+        .btn-outline-custom-red:hover { color: #fff; background-color: #dc3545; border-color: #dc3545; }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="my-4 text-danger">Edit User</h1>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="mb-0">User Information</h2>
+            </div>
+            <div class="card-body">
+                {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <a href="{{ path('app_home') }}" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Retour</a>
+            
+            <div class="float-right">
+                {{ include('user/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

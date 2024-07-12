@@ -1,0 +1,36 @@
+{{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    {{ form_row(form.prenom, {'attr': {'class': 'form-control'}, 'label': 'First Name'}) }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    {{ form_row(form.nom, {'attr': {'class': 'form-control'}, 'label': 'Last Name'}) }}
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    {{ form_row(form.roles, {'attr': {'class': 'form-control'}, 'label': 'User Roles'}) }}
+                </div>
+            </div>
+            {% if form.password is defined %}
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    {{ form_row(form.password, {'attr': {'class': 'form-control'}, 'label': 'Password'}) }}
+                </div>
+            </div>
+            {% endif %}
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    {{ form_row(form.isActive, {'attr': {'class': 'form-check-input'}, 'label': 'Active User'}) }}
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">
+                {{ button_label|default('Save') }}
+            </button>
+            <a href="{{ path('app_user_index') }}" class="btn btn-secondary">Cancel</a>
+        </div>
+{{ form_end(form) }}

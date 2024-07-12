@@ -1,52 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste des extincteurs{% endblock %}
+{% block title %}
+  Liste des extincteurs
+{% endblock %}
 
 {% block body %}
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-body">
-                    <h1 class="card-title mb-4">Liste des extincteurs</h1>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title mb-4">Liste des extincteurs</h1>
 
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Date de fabrication</th>
-                            <th>Date de maintenance</th>
-                            <th>Actif</th>
-                            <th>Quantité</th>
-                            <th>Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for extincteur in extincteurs %}
-                            <tr>
-                                <td>{{ extincteur.id }}</td>
-                                <td>{{ extincteur.dateFabrication ? extincteur.dateFabrication|date('d/m/Y') : '' }}</td>
-                                <td>{{ extincteur.dateMaintenance ? extincteur.dateMaintenance|date('d/m/Y') : '' }}</td>
-                                <td>{{ extincteur.isActive ? 'Oui' : 'Non' }}</td>
-                                <td>{{ extincteur.quantity }}</td>
-                                <td>
-                                    <a href="{{ path('app_extincteur_show', {'id': extincteur.id}) }}" class="btn btn-primary btn-sm">Voir</a>
-                                    <a href="{{ path('app_extincteur_edit', {'id': extincteur.id}) }}" class="btn btn-secondary btn-sm">Modifier</a>
-                                </td>
-                            </tr>
-                        {% else %}
-                            <tr>
-                                <td colspan="6">Aucun enregistrement trouvé</td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Date de fabrication</th>
+                <th>Date de maintenance</th>
+                <th>Actif</th>
+                <th>Quantité</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for extincteur in extincteurs %}
+                <tr>
+                  <td>{{ extincteur.id }}</td>
+                  <td>{{ extincteur.dateFabrication ? extincteur.dateFabrication|date('d/m/Y') : '' }}</td>
+                  <td>{{ extincteur.dateMaintenance ? extincteur.dateMaintenance|date('d/m/Y') : '' }}</td>
+                  <td>{{ extincteur.isActive ? 'Oui' : 'Non' }}</td>
+                  <td>{{ extincteur.quantity }}</td>
+                  <td>
+                    <a href="{{ path('app_extincteur_show', { id: extincteur.id }) }}" class="btn btn-primary btn-sm">Voir</a>
+                    <a href="{{ path('app_extincteur_edit', { id: extincteur.id }) }}" class="btn btn-secondary btn-sm">Modifier</a>
+                  </td>
+                </tr>
+              {% else %}
+                <tr>
+                  <td colspan="6">Aucun enregistrement trouvé</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
 
-                    <div class="d-flex justify-content-between">
-                        <a href="{{ path('app_home') }}" class="btn btn-secondary">Retour à l'accueil</a>
-                        <a href="{{ path('app_extincteur_new') }}" class="btn btn-danger">Créer un nouvel extincteur</a>
-                    </div>
-                </div>
-            </div>
+          <div class="d-flex justify-content-between">
+            <a href="{{ path('app_home') }}" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Retour</a>
+            <a href="{{ path('app_extincteur_new') }}" class="btn btn-success"><i class="fas fa-plus"></i> Nouvel extincteur</a>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 {% endblock %}
