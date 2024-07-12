@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Extincteur;
 use App\Form\ExtincteurTypeForm;
 use App\Repository\ExtincteurRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
