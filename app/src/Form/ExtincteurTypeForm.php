@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use App\Entity\Extincteur;
+use App\Entity\ExtincteurType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -36,6 +37,11 @@ class ExtincteurTypeForm extends AbstractType implements FormTypeInterface
             'class'=>User::class,
             'choice_label'=>'email',
             'multiple'=>true
+        ])
+        ->add('extincteurTypeId',EntityType::class,[
+            'class'=>ExtincteurType::class,
+            'choice_label'=>'label',
+            'label'=>'type d\'extincteur'
         ])
     ;
     }
