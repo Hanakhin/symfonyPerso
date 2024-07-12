@@ -16,10 +16,12 @@ use Symfony\Component\Routing\Attribute\Route;
 class ExtincteurController extends AbstractController
 {
     #[Route('/', name: 'app_extincteur_index', methods: ['GET'])]
-    public function index(ExtincteurRepository $extincteurRepository): Response
+    public function index(ExtincteurRepository $extincteurRepository, UserRepository $userRepository): Response
     {
         return $this->render('extincteur/index.html.twig', [
-            'extincteurs' => $extincteurRepository->findAll(),
+   
+            'extincteurs' => $extincteurRepository->findAll()
+            
         ]);
     }
 

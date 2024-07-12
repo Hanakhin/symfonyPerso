@@ -20,23 +20,31 @@
                 <th>Actif</th>
                 <th>Quantité</th>
                 <th>type</th>
+                <th>Propriétaire</th>
                 <th>Actions</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody> 
               {% for extincteur in extincteurs %}
+      
+            
                 <tr>
                   <td>{{ extincteur.id }}</td>
                   <td>{{ extincteur.dateFabrication ? extincteur.dateFabrication|date('d/m/Y') : '' }}</td>
                   <td>{{ extincteur.dateMaintenance ? extincteur.dateMaintenance|date('d/m/Y') : '' }}</td>
                   <td>{{ extincteur.isActive ? 'Oui' : 'Non' }}</td>
                   <td>{{ extincteur.quantity }}</td>
-                  <td>{{extincteur.extincteurTypeId.label}}</td>
-                  <td>
+                  <td>{{extincteur.extincteurTypeId.label}}</td>  
+                  <td>   {% for user in extincteur.userId %}
+                            {{ user.getemail() }} <br>
+                        {% endfor %}
+                   </td>
+                  <td>  
                     <a href="{{ path('app_extincteur_show', { id: extincteur.id }) }}" class="btn btn-primary btn-sm">Voir</a>
                     <a href="{{ path('app_extincteur_edit', { id: extincteur.id }) }}" class="btn btn-secondary btn-sm">Modifier</a>
                   </td>
                 </tr>
+               
               {% else %}
                 <tr>
                   <td colspan="6">Aucun enregistrement trouvé</td>
