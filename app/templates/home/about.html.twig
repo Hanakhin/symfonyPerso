@@ -1,14 +1,39 @@
 {% extends 'base.html.twig' %}
 
-
-{% block title %}Hello world!{% endblock %}
-
+{% block title %}À propos{% endblock %}
 
 {% block body %}
-    {% include './_fragments/_nav.html.twig' %}
-    <h1 class="text-3xl text-red-500">
-        about us
-    </h1>
-
-
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow">
+                    <div class="card-header bg-danger text-white">
+                        <h1 class="h3 mb-0">À propos d'ExtincteurPro</h1>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title mb-4">Notre mission</h2>
+                        <p>
+                            ExtincteurPro est une entreprise spécialisée dans la gestion et l'entretien des extincteurs. Notre mission est d'offrir à nos clients des solutions fiables et efficaces pour assurer la sécurité de leurs locaux.
+                        </p>
+                        <h2 class="card-title mb-4">Notre équipe</h2>
+                        <p>
+                            Notre équipe est composée de techniciens qualifiés et expérimentés, formés aux dernières normes de sécurité. Ils interviennent rapidement et avec professionnalisme pour répondre à tous vos besoins en matière d'extincteurs.
+                        </p>
+                        <h2 class="card-title mb-4">Nos valeurs</h2>
+                        <ul>
+                            <li>Fiabilité</li>
+                            <li>Expertise</li>
+                            <li>Service client</li>
+                            <li>Responsabilité environnementale</li>
+                        </ul>
+                        <div class="d-flex justify-content-center">
+                            <a href="{{ path('app_contact') }}" class="btn btn-danger">
+                                <i class="fas fa-envelope me-2"></i>Nous contacter
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
