@@ -15,6 +15,7 @@
                         <th>Description</th>
                         <th>Utilisateur</th>
                         <th>Intervention Id</th>
+                        <th>status de l'intervention</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -25,6 +26,7 @@
                             <td>{{ rapport.description }}</td>
                             <td>{{ rapport.getuser().email }}</td>
                             <td>{{ rapport.getintervention().id }}</td>
+                            <td>{{ rapport.getintervention().getStatusId() }}</td>
                             <td>
                                 <a href="{{ path('app_rapport_show', {'id': rapport.id}) }}" class="btn btn-primary btn-sm">Voir</a>
                                 <a href="{{ path('app_rapport_edit', {'id': rapport.id}) }}" class="btn btn-secondary btn-sm">Modifier</a>

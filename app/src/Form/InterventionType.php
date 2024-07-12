@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Entity\Extincteur;
 use App\Entity\Intervention;
-use App\Entity\Rapport;
 use App\Entity\Status;
 use App\Entity\TypeIntervention;
 use App\Entity\User;
@@ -42,6 +41,11 @@ class InterventionType extends AbstractType
                 'class' => Extincteur::class,
                 'choice_label' => 'id',
                 'multiple' => true,
+            ])
+            ->add('statusId', EntityType::class, [
+                'class' => Status::class,
+                'choice_label' => 'label',
+                'label'=>'Status'
             ])
         ;
     }

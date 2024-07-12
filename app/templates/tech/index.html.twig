@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panel Technicien{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+        <div class="card shadow">
+            <div class="card-header bg-danger text-white">
+                <h1 class="h3 mb-0">Panel Technicien</h1>
+            </div>
+            <div class="card-body">
+                <h2 class="card-title mb-4">Interventions en cours</h2>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Date d'intervention</th>
+                        <th>Extincteur</th>
+                        <th>Statut</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for intervention in interventions %}
+                        <tr>
+                            <td>{{ intervention.id }}</td>
+                            <td>{{ intervention.dateIntervention|date('d/m/Y') }}</td>
+                            <td>
+                                <a href="{{ path('app_intervention_edit', {'id': intervention.id}) }}" class="btn btn-warning btn-sm">
+                                    <i class="fas fa-edit me-2"></i>Modifier
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5" class="text-center">Aucune intervention en cours.</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

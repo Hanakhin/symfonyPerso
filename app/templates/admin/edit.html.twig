@@ -24,7 +24,7 @@
                 <h2 class="mb-0">User Information</h2>
             </div>
             <div class="card-body">
-                {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+                {{ include('admin/_form.html.twig', {'button_label': 'Update'}) }}
             </div>
         </div>
 
@@ -32,7 +32,7 @@
             <a href="{{ path('app_home') }}" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Retour</a>
             
             <div class="float-right">
-                {{ include('user/_delete_form.html.twig') }}
+                {{ include('admin/_delete_form.html.twig') }}
             </div>
         </div>
     </div>

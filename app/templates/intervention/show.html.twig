@@ -28,7 +28,7 @@
                     </tr>
                     <tr>
                         <th>status</th>
-                        <td>{{ intervention.statusId == 1 ? 'en cours' : intervention.statusId == 2 ? 'terminée' : 'Validée' }}</td>
+                        <td>{{ intervention.getStatusId().label }}</td>
                     </tr>
                     </tbody>
                 </table>
