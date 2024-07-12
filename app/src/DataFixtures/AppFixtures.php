@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\ExtincteurType;
 use App\Entity\Status;
 use App\Entity\TypeIntervention;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -33,6 +34,20 @@ class AppFixtures extends Fixture
 
         $manager->persist($pose);
         $manager->persist($maintenance);
+
+        $eau = new ExtincteurType();
+        $co2 = new ExtincteurType();
+        $poudre = new ExtincteurType();
+
+        $eau->setLabel('eau');
+        $co2->setLabel('co2');
+        $poudre->setLabel('poudre');
+
+        $manager->persist($eau);
+        $manager->persist($co2);
+        $manager->persist($poudre);
+
+
         $manager->flush();
     }
 }
