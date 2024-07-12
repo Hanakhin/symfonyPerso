@@ -38,9 +38,14 @@
                     </tbody>
                 </table>
 
-                <div class="d-flex justify-content-end">
-                    <a href="{{ path('app_intervention_new') }}" class="btn btn-success">Nouvelle intervention</a>
-                </div>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <a href="{{ path('app_home') }}" class="btn btn-outline-secondary">
+        <i class="fas fa-arrow-left"></i> Retour
+    </a>
+    <a href="{{ path('app_intervention_new') }}" class="btn btn-success">
+        <i class="fas fa-plus"></i> Nouvelle intervention
+    </a>
+</div>
             </div>
         </div>
     </div>

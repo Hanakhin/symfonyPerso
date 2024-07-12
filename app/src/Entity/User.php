@@ -43,7 +43,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $nom = null;
 
     #[ORM\Column]
-    private ?bool $isActive = null;
+    public ?bool $isActive = null;
 
     #[ORM\ManyToOne(inversedBy: 'users')]
     private ?Adress $adressId = null;

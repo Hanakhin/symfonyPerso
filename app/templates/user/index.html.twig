@@ -1,20 +1,58 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}User Index{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        body { background-color: #fff5f5; }
+        .table { background-color: #fff; }
+        .table-header { background-color: #dc3545; color: white; }
+        .btn-custom-red { background-color: #dc3545; border-color: #dc3545; color: white; }
+        .btn-custom-red:hover { background-color: #c82333; border-color: #bd2130; }
+        .btn-outline-custom-red { color: #dc3545; border-color: #dc3545; }
+        .btn-outline-custom-red:hover { color: #fff; background-color: #dc3545; border-color: #dc3545; }
+    </style>
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="container">
+        <h1 class="my-4 text-danger">User Index</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        {% if users|length > 0 %}
+            <table class="table table-bordered">
+                <thead class="table-header">
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Roles</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                        <td>{{ user.prenom }}</td>
+                        <td>{{ user.nom }}</td>
+                        <td>{{ user.isActive ? 'Active' : 'Inactive' }}</td>
+                        <td>
+                            <a href="{{ path('app_user_show', {'id': user.id}) }}" class="btn btn-sm btn-outline-custom-red">View</a>
+                            <a href="{{ path('app_user_edit', {'id': user.id}) }}" class="btn btn-sm btn-custom-red">Edit</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="alert alert-danger">No users found.</p>
+        {% endif %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/var/www/html/src/Controller/UserController.php</code></li>
-        <li>Your template at <code>/var/www/html/templates/user/index.html.twig</code></li>
-    </ul>
-</div>
+            <a href="{{ path('app_home') }}" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Retour</a>
+    </div>
 {% endblock %}

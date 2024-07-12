@@ -2,25 +2,42 @@
 
 namespace App\Form;
 
+use App\Entity\User;
 use App\Entity\Extincteur;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormTypeInterface;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ExtincteurTypeForm extends AbstractType implements FormTypeInterface
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('dateFabrication',DateType::class)
-            ->add('dateMaintenance',DateType::class)
-            ->add('quantity',NumberType::class)
-            ->add('Ajouter', SubmitType::class)
-        ;
+        ->add('dateFabrication', DateType::class, [
+            'widget' => 'single_text',
+            'label' => 'Date de fabrication'
+        ])
+        ->add('dateMaintenance', DateType::class, [
+            'widget' => 'single_text',
+            'label' => 'Date de maintenance'
+        ])
+        ->add('quantity', NumberType::class, [
+            'label' => 'Quantité'
+        ])
+        ->add('Ajouter', SubmitType::class)
+
+        ->add('userId',EntityType::class,[
+            'class'=>User::class,
+            'choice_label'=>'email',
+            'multiple'=>true
+        ])
+    ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

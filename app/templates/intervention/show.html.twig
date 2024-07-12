@@ -34,8 +34,9 @@
                 </table>
 
                 <div class="d-flex justify-content-between">
-                    <a href="{{ path('app_intervention_index') }}" class="btn btn-secondary">Retour à la liste</a>
-                    <div>
+    <a href="{{ path('app_intervention_index') }}" class="btn btn-outline-secondary">
+        <i class="fas fa-arrow-left"></i> Retour
+    </a>                    <div>
                         <a href="{{ path('app_intervention_edit', {'id': intervention.id}) }}" class="btn btn-primary">Modifier</a>
                     </div>
                 </div>
