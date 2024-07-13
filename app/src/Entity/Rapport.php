@@ -22,6 +22,9 @@ class Rapport
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Intervention $intervention = null;
 
+    #[ORM\ManyToOne(inversedBy: 'rapports')]
+    private ?Status $status = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Rapport
     public function setIntervention(?Intervention $intervention): static
     {
         $this->intervention = $intervention;
+
+        return $this;
+    }
+
+    public function getStatus(): ?Status
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?Status $status): static
+    {
+        $this->status = $status;
 
         return $this;
     }

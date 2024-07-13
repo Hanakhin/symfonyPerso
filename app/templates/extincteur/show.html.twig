@@ -26,6 +26,11 @@
                         <th>Actif</th>
                         <td>{{ extincteur.isActive ? 'Oui' : 'Non' }}</td>
                     </tr>
+
+                    <tr>
+                        <th>Type D'extincteur</th>
+                        <td>{{ extincteur.getExtincteurTypeId().label }}</td>
+                    </tr>
                     </tbody>
                 </table>
 

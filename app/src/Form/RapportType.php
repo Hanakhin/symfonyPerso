@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Intervention;
 use App\Entity\InterventionUser;
 use App\Entity\Rapport;
+use App\Entity\Status;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -29,6 +30,12 @@ class RapportType extends AbstractType
                 'choice_label'=>'email',
                 'label'=>'utilisateur'
             ])
+            ->add('status', EntityType::class, [
+                'class' => Status::class,
+                'choice_label'=>'label',
+                'label'=>'statut'
+            ])
+
             ->add('ajouter', SubmitType::class)
         ;
     }

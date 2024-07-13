@@ -3,6 +3,11 @@
 {% block title %}Accueil - Gestion des Extincteurs{% endblock %}
 
 {% block body %}
+    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_TECH') %}
+    <div class="jumbotron bg-light p-5 rounded-3 mb-4">
+        <h1 class="display-4">Vous etes connecté en tant qu'Admin ou Tech</h1>
+    </div>
+    {% else %}
     <div class="jumbotron bg-light p-5 rounded-3 mb-4">
         <h1 class="display-4">Bienvenue sur ExtincteurPro</h1>
         <p class="lead">Votre solution complète pour la gestion et l'intervention sur les extincteurs.</p>
@@ -11,7 +16,7 @@
 
         <a class="btn btn-danger btn-lg" href="{{ path('app_contact') }}" role="button">Commencer</a>
     </div>
-
+    {% endif %}
     {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_TECH') %}
         <div class="row">
             <div class="col-md-4 mb-4">

@@ -48,6 +48,7 @@ class AppFixtures extends Fixture
         $manager->persist($poudre);
 
 
+
         $manager->flush();
     }
 }
