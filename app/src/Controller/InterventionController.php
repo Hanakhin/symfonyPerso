@@ -61,10 +61,6 @@ class InterventionController extends AbstractController
         $form = $this->createForm(InterventionType::class, $intervention);
         $form->handleRequest($request);
 
-        $statusId = $form->get('statusId')->getData();
-        $status = $entityManager->getRepository(Status::class)->find($statusId);
-        $intervention->setStatusId($status);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 

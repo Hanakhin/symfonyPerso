@@ -42,11 +42,6 @@ class InterventionType extends AbstractType
                 'choice_label' => 'id',
                 'multiple' => true,
             ])
-            ->add('statusId', EntityType::class, [
-                'class' => Status::class,
-                'choice_label' => 'label',
-                'label'=>'Status'
-            ])
         ;
     }
 

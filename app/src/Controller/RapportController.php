@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/rapport')]
 class RapportController extends AbstractController
 {
-    #[Route('/', name: 'app_rapport_index', methods: ['GET'])]
+    #[Route('/index', name: 'app_rapport_index', methods: ['GET'])]
     public function index(RapportRepository $rapportRepository): Response
     {
         return $this->render('rapport/index.html.twig', [

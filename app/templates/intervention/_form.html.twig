@@ -27,10 +27,6 @@
                     {{ form_label(form.extincteurs, 'Extincteurs') }}
                     {{ form_widget(form.extincteurs, {'attr': {'class': 'form-control'}}) }}
                 </div>
-                <div class="form-group">
-                    {{ form_label(form.statusId, 'status de l\'intervention') }}
-                    {{ form_widget(form.statusId, {'attr': {'class': 'form-control'}}) }}
-                </div>
                 <div class="d-flex justify-content-between " style="    margin-top: 22px;">
                     <a href="{{ path('app_intervention_index') }}" class="btn btn-outline-secondary">
                         <i class="fas fa-arrow-left"></i> Retour

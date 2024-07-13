@@ -19,6 +19,9 @@
                     <div class="mb-3">
                         {{ form_row(rapportForm.intervention, {'attr': {'class': 'form-control'}, 'label_attr': {'class':'form-label'}}) }}
                     </div>
+                    <div class="mb-3">
+                        {{ form_row(rapportForm.status, {'attr': {'class': 'form-control'}, 'label_attr': {'class':'form-label'}}) }}
+                    </div>
                     <div class="mb-3 d-flex justify-content-center">
                         {{ form_row(rapportForm.ajouter, {'attr': {'class': 'btn btn-primary me-2'}, 'label_attr': {'class': 'form-label'}}) }}
                         <a href="{{ path('app_rapport_index') }}" class="btn btn-secondary">Annuler</a>

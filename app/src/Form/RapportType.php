@@ -30,6 +30,11 @@ class RapportType extends AbstractType
                 'choice_label'=>'email',
                 'label'=>'utilisateur'
             ])
+            ->add('status', EntityType::class, [
+                'class' => Status::class,
+                'choice_label'=>'label',
+                'label'=>'statut'
+            ])
 
             ->add('ajouter', SubmitType::class)
         ;
