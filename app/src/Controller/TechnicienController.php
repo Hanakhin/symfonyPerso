@@ -20,7 +20,7 @@ class TechnicienController extends AbstractController
         $interventions = $entityManager->getRepository(Intervention::class)->findAll();
         $status = $entityManager->getRepository(Status::class)->findAll();
         $extincteurs = $entityManager->getRepository(Extincteur::class)->findAll();
-        return $this->render('tech/index.html.twig', [
+        return $this->render('tech/contact.html.twig', [
             'controller_name' => 'TechnicienController',
             'interventions'=>$interventions,
             'status'=>$status,

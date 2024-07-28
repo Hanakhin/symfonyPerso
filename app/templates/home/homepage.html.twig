@@ -4,45 +4,49 @@
 
 {% block body %}
     {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_TECH') %}
-    <div class="jumbotron bg-light p-5 rounded-3 mb-4">
-        <h1 class="display-4">Vous etes connecté en tant qu'Admin ou Tech</h1>
-    </div>
+        <div class="jumbotron bg-light p-5 rounded-3 mb-4">
+            <h1 class="display-4">Vous êtes connecté en tant
+                {% if is_granted('ROLE_ADMIN') %}
+                    qu'Admin
+                {% elseif is_granted('ROLE_TECH') %}
+                    que Tech
+                {% endif %}
+            </h1>
+        </div>
     {% else %}
-    <div class="jumbotron bg-light p-5 rounded-3 mb-4">
-        <h1 class="display-4">Bienvenue sur ExtincteurPro</h1>
-        <p class="lead">Votre solution complète pour la gestion et l'intervention sur les extincteurs.</p>
-        <hr class="my-4">
-        <p>Gérez efficacement vos extincteurs, planifiez vos interventions et assurez la sécurité de vos installations.</p>
-
-        <a class="btn btn-danger btn-lg" href="{{ path('app_contact') }}" role="button">Commencer</a>
-    </div>
+        <div class="jumbotron bg-light p-5 rounded-3 mb-4">
+            <h1 class="display-4">Bienvenue sur ExtincteurPro</h1>
+            <p class="lead">Votre solution complète pour la gestion et l'intervention sur les extincteurs.</p>
+            <hr class="my-4">
+            <p>Gérez efficacement vos extincteurs, planifiez vos interventions et assurez la sécurité de vos installations.</p>
+        </div>
     {% endif %}
     {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_TECH') %}
         <div class="row">
             <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
+                <div class="card h-100 d-flex flex-column">
+                    <div class="card-body d-flex flex-column">
                         <h5 class="card-title"><i class="fas fa-clipboard-list text-danger me-2"></i>Inventaire</h5>
                         <p class="card-text">Gérez votre parc d'extincteurs en temps réel. Suivez les emplacements, les types et les dates de maintenance.</p>
-                        <a href="{{ path('app_extincteur_index') }}" class="btn btn-outline-danger">Voir l'inventaire</a>
+                        <a href="{{ path('app_extincteur_index') }}" class="btn btn-outline-danger mt-auto">Voir l'inventaire</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
+                <div class="card h-100 d-flex flex-column">
+                    <div class="card-body d-flex flex-column">
                         <h5 class="card-title"><i class="fas fa-tools text-danger me-2"></i>Interventions</h5>
                         <p class="card-text">Planifiez et suivez vos interventions. Assurez-vous que tous vos extincteurs sont à jour et fonctionnels.</p>
-                        <a href="{{ path('app_intervention_index') }}" class="btn btn-outline-danger">Gérer les interventions</a>
+                        <a href="{{ path('app_intervention_index') }}" class="btn btn-outline-danger mt-auto">Gérer les interventions</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
+                <div class="card h-100 d-flex flex-column">
+                    <div class="card-body d-flex flex-column">
                         <h5 class="card-title"><i class="fas fa-chart-bar text-danger me-2"></i>Rapports</h5>
                         <p class="card-text">Générez des rapports détaillés sur l'état de votre parc d'extincteurs et vos interventions.</p>
-                        <a href="{{ path('app_rapport_index') }}" class="btn btn-outline-danger">Voir les rapports</a>
+                        <a href="{{ path('app_rapport_index') }}" class="btn btn-outline-danger mt-auto">Voir les rapports</a>
                     </div>
                 </div>
             </div>
