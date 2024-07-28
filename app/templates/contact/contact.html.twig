@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactez-nous{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">Contactez-nous</h2>
+
+                        {{ form_start(contactform, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+
+                        <div class="mb-3">
+                            {{ form_label(contactform.email, 'Votre adresse e-mail', {'label_attr': {'class': 'form-label'}}) }}
+                            {{ form_widget(contactform.email, {'attr': {'class': 'form-control', 'placeholder': 'exemple@email.com'}}) }}
+                            {{ form_errors(contactform.email) }}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form_label(contactform.subject, 'Sujet', {'label_attr': {'class': 'form-label'}}) }}
+                            {{ form_widget(contactform.subject, {'attr': {'class': 'form-control', 'placeholder': 'Le sujet de votre message'}}) }}
+                            {{ form_errors(contactform.subject) }}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form_label(contactform.message, 'Votre message', {'label_attr': {'class': 'form-label'}}) }}
+                            {{ form_widget(contactform.message, {'attr': {'class': 'form-control', 'rows': '5', 'placeholder': 'Écrivez votre message ici...'}}) }}
+                            {{ form_errors(contactform.message) }}
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+                            <a href='{{ path('app_home') }}' class="btn btn-outline-secondary">
+                                <i class="fas fa-arrow-left me-2"></i>Retour
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                Envoyer le message
+                                <i class="fas fa-paper-plane ms-2"></i>
+                            </button>
+                        </div>
+
+                        {{ form_end(contactform) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
