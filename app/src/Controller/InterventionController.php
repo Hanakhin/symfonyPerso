@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Entity\Status;
+use App\Repository\StatusRepository;
 
 #[Route('/intervention')]
 class InterventionController extends AbstractController
@@ -24,16 +25,15 @@ class InterventionController extends AbstractController
     }
 
     #[Route('/new', name: 'app_intervention_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, StatusRepository $sr): Response
     {
         $intervention = new Intervention();
 
         $form = $this->createForm(InterventionType::class, $intervention);
         $form->handleRequest($request);
-
+        $status = $sr->findOneBy(['label'=>'validée']);
         if ($form->isSubmitted() && $form->isValid()) {
-            $statusId = $form->get('statusId')->getData();
-            $status = $entityManager->getRepository(Status::class)->find($statusId);
+            $intervention->setStatusId($status);
             $intervention->setStatusId($status);
             $entityManager->persist($intervention);
             $entityManager->flush();
@@ -84,6 +84,8 @@ class InterventionController extends AbstractController
 
         return $this->redirectToRoute('app_intervention_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    
 
 
 }

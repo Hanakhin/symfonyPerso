@@ -46,7 +46,7 @@ class AppFixtures extends Fixture
         $manager->persist($eau);
         $manager->persist($co2);
         $manager->persist($poudre);
-
+        
 
 
         $manager->flush();
