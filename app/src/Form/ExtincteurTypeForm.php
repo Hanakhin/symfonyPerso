@@ -20,13 +20,13 @@ class ExtincteurTypeForm extends AbstractType implements FormTypeInterface
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('dateFabrication', DateType::class, [
-            'widget' => 'single_text',
-            'label' => 'Date de fabrication'
-        ])
         ->add('dateMaintenance', DateType::class, [
             'widget' => 'single_text',
             'label' => 'Date de maintenance'
+        ])
+        ->add('dateFabrication', DateType::class, [
+            'widget' => 'single_text',
+            'label' => 'Date de fabrication'
         ])
         ->add('quantity', NumberType::class, [
             'label' => 'Quantité'
@@ -36,6 +36,7 @@ class ExtincteurTypeForm extends AbstractType implements FormTypeInterface
         ->add('userId',EntityType::class,[
             'class'=>User::class,
             'choice_label'=>'email',
+            'label'=>'Utilisateur',
             'multiple'=>true
         ])
         ->add('extincteurTypeId',EntityType::class,[

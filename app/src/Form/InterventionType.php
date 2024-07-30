@@ -30,7 +30,7 @@ class InterventionType extends AbstractType
             ])
             ->add('userId', EntityType::class, [
                 'class' => User::class,
-                'choice_label' => 'id',
+                'choice_label' => 'email',
                 'multiple' => true,
             ])
             ->add('typeInterventionId', EntityType::class, [
