@@ -28,20 +28,17 @@ class AdminController extends AbstractController
             'user' => $user,
         ]);
     }
-
+    //fonction qui modifie l'user
     #[Route('/{id}/edit', name: 'app_admin_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
-
+        $form->handleRequest($request); //traite les donners du form 
+        if ($form->isSubmitted() && $form->isValid()) {//verification soumission du formulaire 
+            $entityManager->flush();//modifie les donné de l'utilisateur 
             return $this->redirectToRoute('app_admin_index', [], Response::HTTP_SEE_OTHER);
         }
-
-        return $this->render('admin/edit.html.twig', [
+        return $this->render('admin/edit.html.twig', [//affichge du formulaire 
             'user' => $user,
             'form' => $form,
         ]);

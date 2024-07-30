@@ -9,18 +9,10 @@
                 </div>
             </div>
             <div class="row">
-
                 <div class="col-md-6 mb-3">
                     {{ form_row(form.roles, {'attr': {'class': 'form-control'}, 'label': 'User Roles'}) }}
                 </div>
             </div>
-            {% if form.password is defined %}
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    {{ form_row(form.password, {'attr': {'class': 'form-control'}, 'label': 'Password'}) }}
-                </div>
-            </div>
-            {% endif %}
             <div class="row">
                 <div class="col-md-6 mb-3">
                     {{ form_row(form.isActive, {'attr': {'class': 'form-check-input'}, 'label': 'Active User'}) }}
